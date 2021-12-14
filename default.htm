@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>First Page</title>
+  </head>
+  <body>
+    <button id="myButton" class="float-left submit-button" >Watch</button>
+
+    <button id="vid1Butt" class="float-left submit-button" >Video1</button>
+    <button id="vid2Butt" class="float-left submit-button" >Video2</button>
+    <button id="vid3Butt" class="float-left submit-button" >Video3</button>
+    
+  </body>
+  <script type="text/javascript">
+    document.getElementById("myButton").onclick = function () {
+      location.href = "videos.html";
+    };
+
+    document.getElementById("vid1Butt").onclick = function () {
+      vid1Click();
+    };
+    document.getElementById("vid2Butt").onclick = function () {
+      vid2Click();
+    };
+    document.getElementById("vid3Butt").onclick = function () {
+      vid3Click();
+    };
+
+
+
+
+    function vid1Click(){
+    localStorage.setItem('superValue', 'video1.mp4');
+    window.open("videos.html");
+    };
+
+    function vid2Click(){
+    localStorage.setItem('superValue', 'video2.mp4');
+    window.open("videos.html");
+    };
+
+    function vid3Click(){
+    localStorage.setItem('superValue', 'video3.mp4');
+    window.open("videos.html");
+    };
+
+  </script>
+
+</html>

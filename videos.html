@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Videos</title>
+  </head>
+
+  <style>
+    video {
+      width: 90%    !important;
+      height: auto   !important;
+      position: relative;
+    }
+    p{
+      position: relative;
+    }
+    button{
+      position: relative;
+      right:   500;
+      bottom:   500;
+    }
+  </style>
+
+
+  <body>
+    <video id="vidSource" src="video1.mp4" width="1200" height="700" type=video/mp4 controls>
+         
+    </video>
+    </br>
+    <button id="homeButt" class="float-left submit-button" >Home</button>
+    <button id="preVid" class="float-left submit-button"  >Previous</button>
+    <button id="nextVid" class="float-left submit-button"  >Next</button>
+    <p id="vidAtt"></p>
+  </body>
+
+  <script type="text/javascript">
+
+    var video = document.getElementById('vidSource');
+    function setVidSrcClick () {
+        if (video.getAttribute('src') !== localStorage['superValue']) {
+            video.setAttribute('src', localStorage['superValue']);
+            let vidAtt=video.getAttribute('src')+","+video.getAttribute('type');
+            document.getElementById('vidAtt').innerHTML=vidAtt;
+        }
+    }
+    setTimeout( setVidSrcClick, 100); //runs the function only once to set video src if user clicks on specific video button on home page
+
+
+
+
+
+    
+
+    
+    let i=1;
+    function NextVid() {
+        
+        if (i!=3){
+            i++;
+            fullSrc=`video${i}.mp4`;
+            video.setAttribute('src',fullSrc);
+            video.load();
+            let vidAtt=video.getAttribute('src')+","+video.getAttribute('type');
+            document.getElementById('vidAtt').innerHTML=vidAtt;
+            
+        }
+        else{
+            alert('this is the last vid');
+        }
+    };
+
+    function preVid() {
+         var video = document.getElementById('vidSource');
+        if (i!=1){
+            i--; 
+            fullSrc=`video${i}.mp4`;
+            video.setAttribute('src',fullSrc);
+            video.load();
+            let vidAtt=video.getAttribute('src')+","+video.getAttribute('type');
+            document.getElementById('vidAtt').innerHTML=vidAtt;
+        }
+        else{
+            alert('this is the first vid');
+        }
+        
+    };
+
+    document.getElementById("nextVid").onclick = function () {
+      NextVid();
+    };
+    document.getElementById("preVid").onclick = function () {
+      preVid();
+    };
+
+    document.getElementById("homeButt").onclick = function () {
+      location.href = "default.htm";
+    };
+</script>
+
+</html>
